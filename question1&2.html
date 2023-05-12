@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>question1</title>
+</head>
+<script>
+    document.addEventListener('DOMContentLoaded',()=>{
+        document.querySelector('#price').onkeyup = function(){
+            var regex = /^\$\d+(?:\.\d{2})$/;
+            var price = document.querySelector('#price').value;
+            if (regex.test(price)) {
+                document.querySelector('#info').innerHTML='Valid price';
+            } else {
+                document.querySelector('#info').innerHTML="Invalid price";            }
+    
+        }
+        document.querySelector('#tag').onkeyup = function(){
+            const reg =/<\w+\s*(?:\w+\s*=\s*(?:"[^"]*"|'[^']*'))*\s*\/>/;
+            var tag = document.querySelector('#tag').value;
+            if (reg.test(tag)) {
+                document.querySelector('#out').innerHTML='Valid tag';
+            } else {
+                document.querySelector('#out').innerHTML="Invalid tag"
+            }
+        }
+    });
+    
+    
+</script>
+<body>
+    <h3>Question 1 Test validation of Price start with $</h3>
+    <input type="text" id="price" placeholder="Enter amount in terms of $">
+
+    <p id="info"></p>
+    <hr>
+    <h3>Question 2 Test validation of HTML tag. A tag must start with “<” and end
+        with “/>”</h3>
+    <input type="text" id="tag" placeholder="enter your tag">
+    <p id="out"></p>
+</body>
+</html>
